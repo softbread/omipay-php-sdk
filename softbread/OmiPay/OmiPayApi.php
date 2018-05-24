@@ -108,7 +108,6 @@ class OmiPayApi
             curl_setopt($ch, CURLOPT_PROXYPORT, OmiPayConfig::CURL_PROXY_PORT);
         }
         $url .= '?' . $inputObj->toQueryParameters();
-        echo $url . '<br>';
         // echo '这是get的url链接'.$url;
         
         // $url .= '&o_number=05'; 正式通道
@@ -158,7 +157,8 @@ class OmiPayApi
             throw new OmiPayException('Omipay QR response error');
         }
         
-        return QRCode::png($result['qrcode']);
+        $qr = new QRcode();
+        return $qr->png($result['qrcode']);
     }
     
     /**
@@ -440,6 +440,7 @@ class OmiPayApi
      * @param object $inputObj
      * @param int    $second url执行超时时间，默认30s
      * @throws OmiPayException
+     * @return string
      */
     private static function postJsonCurl($url, $inputObj, $second = 30)
     {
