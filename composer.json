@@ -2,18 +2,17 @@
   "name": "softbread/omipay-php-sdk",
   "description": "Omipay PHP SDK",
   "type": "libaray",
+  "homepage": "https://github.com/softbread/omipay-php-sdk",
   "license": "BSD-2-Clause",
   "authors": [
     {
       "name": "Victor Wang",
-      "email": "xiwang2000@gmail.com",
-      "homepage": "https://github.com/softbread"
+      "email": "xiwang2000@gmail.com"
     }
   ],
   "minimum-stability": "stable",
   "require": {
-    "php": ">=5.5.0",
-    "codelint/phpqrcode": "@dev"
+    "php": ">=5.5.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"

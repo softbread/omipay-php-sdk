@@ -145,20 +145,24 @@ class OmiPayApi
             return json_encode(["curl error code" => $error]);
         }
     }
-    
+
     /**
-     * Generate the actual QR image ready for image source
+     * get response string for QR code
+     *
+     * @param $input
+     * @param $domain
+     * @return mixed
+     * @throws OmiPayException
      */
-    public static function getQrImage($input, $domain)
+    public static function getQrPaymentResponse($input, $domain)
     {
         $result = self::qrOrder($input, $domain);
         
         if (empty($result['qrcode'])) {
-            throw new OmiPayException('Omipay QR response error');
+            throw new OmiPayException('Omipay API response error');
         }
         
-        $qr = new QRcode();
-        return $qr->png($result['qrcode']);
+        return $result['grcode'];
     }
     
     /**
