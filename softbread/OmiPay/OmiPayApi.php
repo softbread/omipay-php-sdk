@@ -162,7 +162,7 @@ class OmiPayApi
             throw new OmiPayException('Omipay API response error');
         }
         
-        return $result['grcode'];
+        return $result['qrcode'];
     }
     
     /**
